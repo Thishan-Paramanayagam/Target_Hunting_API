@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Target_Hunting_API.props" />
+</Project>
