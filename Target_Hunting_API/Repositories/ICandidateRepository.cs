@@ -9,5 +9,7 @@ namespace Target_Hunting_API.Repositories
         Task<Candidate> GetCandidateByIdAsync(Guid id);
         Task DeleteCandidateAsync(Candidate candidate);
         Task SaveChangesAsync();
+
+        Task<List<Candidate>> GetCandidatesByDateAndTimeAsync(string date, string time);
     }
 }

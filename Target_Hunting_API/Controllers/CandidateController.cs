@@ -102,5 +102,18 @@ namespace Target_Hunting_API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while deleting candidate.");
             }
         }
+        [HttpGet("ByDateAndTime")]
+        public async Task<IActionResult> GetCandidateByDateAndTime([FromQuery] string date, [FromQuery] string time)
+        {
+            try
+            {
+                var candidates = await candidateRepository.GetCandidatesByDateAndTimeAsync(date, time);
+                return Ok(candidates);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while fetching candidates by date and time.");
+            }
+        }
     }
 }

@@ -42,5 +42,12 @@ namespace Target_Hunting_API.Repositories
         {
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Candidate>> GetCandidatesByDateAndTimeAsync(string date, string time)
+        {
+            return await _context.Candidates
+                .Where(c => c.Date == date && c.Time == time)
+                .ToListAsync();
+        }
     }
 }
